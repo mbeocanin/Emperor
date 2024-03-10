@@ -1867,7 +1867,7 @@ Shot = TRUE		//infantry death anim
 
 
 [DevPlasma_B]
-MaxRange = 9
+MaxRange = 10   //was 9
 Speed = 20//10.0
 ExplosionType = ShellHit
 Debris = DebrisSmall
@@ -1876,6 +1876,7 @@ Warhead = DevPlasma_W
 ExplosionType = DevImpact
 BlowUp = TRUE		//infantry death anim
 FriendlyDamageAmount = 50
+BlastRadius = 32
 
 [DevRocket_B]
 Homing = true
@@ -8809,10 +8810,10 @@ BuildTime = 499
 Size = 2
 TurretAttach = ATADPGun
 HeightOffset = 8
-Speed = 20 //10 //7.0						//game coord per update
+Speed = 12  //20 //10 //7.0			//game coord per update
 TurnRate = 0.05					//radians per update
 Armour = Aircraft
-Health = 1200
+Health = 600  //was 1200
 CanFly = TRUE
 Circles = TRUE
 ADF = TRUE
