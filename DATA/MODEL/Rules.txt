@@ -27,8 +27,8 @@ FrigateCountdown = 2500			//time for frigate to arrive
 
 HarvReplacementDelay = 1000	// ticks before harvester gets replaced
 
-HawkStrikeDuration = 500      //How long does AT hawkstrike affect a unit?
-LightningDuration = 300		//How long does OR lightning affect a unit?
+HawkStrikeDuration = 625   //was 500      //How long does AT hawkstrike affect a unit?
+LightningDuration = 525   //was 300		//How long does OR lightning affect a unit?
 DeviateDuration = 400			// How long does the deviator effect last?
 
 SoundStealthOn = StealthOn		// Sfx hooks used for special fx.
@@ -868,6 +868,9 @@ VetLevelFX
 [UnitTypes]
 DukeAchillus
 
+[BulletTypes]
+DevastatorBomb
+
 //-----------------------------------------------------------------------------
 //ATTRIBUTE SECTION
 //-----------------------------------------------------------------------------
@@ -1406,7 +1409,7 @@ Debris = DebrisSmall
 Damage = 3000
 ExplosionType = Explosion
 Warhead = Howitzer_W
-BlastRadius = 96 //Tile is equal to 32
+BlastRadius = 128   //was 96 //Tile is equal to 32
 BlowUp = TRUE		//infantry death anim
 ReduceDamageWithDistance = False
 
@@ -1423,10 +1426,20 @@ BlowUp = TRUE		//infantry death anim
 [DeathHandBomb]
 MaxRange = 0			//blow up immediatiely
 Debris = DebrisSmall
-Damage = 5000
+Damage = 5500
 ExplosionType = DHBigExplosion
 Warhead = Death_W
-BlastRadius = 96 //Tile is equal to 32
+BlastRadius = 192   //was 96 //Tile is equal to 32
+BlowUp = TRUE		//infantry death anim
+ReduceDamageWithDistance = False
+
+[DevastatorBomb]
+MaxRange = 0			//blow up immediatiely
+Debris = DebrisSmall
+Damage = 4500   //was 5000
+ExplosionType = DHBigExplosion
+Warhead = Death_W
+BlastRadius = 192   //was 96 //Tile is equal to 32
 BlowUp = TRUE		//infantry death anim
 ReduceDamageWithDistance = False
 
@@ -1503,7 +1516,7 @@ Damage = 900 //600 //Low value because it does continuos damage
 Warhead = sound_W
 BlowUp = TRUE		//infantry death anim
 ReduceDamageWithDistance = False
-FriendlyDamageAmount = 50
+FriendlyDamageAmount = 25
 
 [SoundInf_B]
 Continuous = TRUE
@@ -1514,7 +1527,7 @@ Damage = 238 //Low value because it does continuos damage
 Warhead = sound_W
 BlowUp = TRUE		//infantry death anim
 ReduceDamageWithDistance = False
-FriendlyDamageAmount = 50
+FriendlyDamageAmount = 25
 
 
 [HomingMissile]//not used
@@ -1538,7 +1551,7 @@ Warhead = Flame_W
 Burnt = TRUE		//infantry death anim
 BlastRadius = 32
 ReduceDamageWithDistance = False
-FriendlyDamageAmount = 50
+FriendlyDamageAmount = 25
 
 
 [FlameTank_B]
@@ -1551,7 +1564,7 @@ Warhead = Flame_W
 Burnt = TRUE		//infantry death anim
 BlastRadius = 32
 ReduceDamageWithDistance = False
-FriendlyDamageAmount = 50
+FriendlyDamageAmount = 25
 
 [FlameTurret_B]
 Continuous = TRUE
@@ -1563,7 +1576,7 @@ Warhead = Flame_W
 Burnt = TRUE		//infantry death anim
 BlastRadius = 32
 ReduceDamageWithDistance = False
-FriendlyDamageAmount = 50
+FriendlyDamageAmount = 25
 
 
 
@@ -1578,7 +1591,7 @@ Warhead = Flame_W
 Gassed = TRUE		//infantry death anim
 BlastRadius = 96
 ReduceDamageWithDistance = False
-FriendlyDamageAmount = 50
+FriendlyDamageAmount = 25
 
 [IXPlasma_B]
 Trajectory = true
@@ -1615,7 +1628,7 @@ Damage = 250
 Warhead = Flame_W
 Gassed = TRUE
 ReduceDamageWithDistance = False
-FriendlyDamageAmount = 50
+FriendlyDamageAmount = 25
 LingerDuration = 50
 LingerDamage = 10
 
@@ -1975,7 +1988,7 @@ Shot = TRUE		//infantry death anim
 [DeathHandSplat_B]
 MaxRange = 0			//blow up immediatiely
 Damage = 15  //was 3
-BlastRadius = 320 	// Splat is 10 x 10 tiles
+BlastRadius = 192 //was 320 	// Splat is 10 x 10 tiles
 DamageFriendly = TRUE	// Damage friendly units!
 Ignites = TRUE 		// Don't ignite other splats!
 Warhead = DeathHandSplat_W
@@ -2097,7 +2110,7 @@ Continuous = TRUE
 Speed = 32// 16
 Beserk = TRUE
 ExplosionType = ORLightning
-BlastRadius = 128  //Tile is equal to 32
+BlastRadius = 160   //was 128  //Tile is equal to 32
 Damage = 1000
 Warhead = HEAT_W
 Shot = TRUE		//infantry death anim
@@ -2109,7 +2122,7 @@ Continuous = TRUE
 Speed = 16
 Retreat = TRUE
 ExplosionType = ATHawk
-BlastRadius = 128  //Tile is equal to 32
+BlastRadius = 224   //was 128  //Tile is equal to 32
 Damage = 1000
 Warhead = HEAT_W
 Shot = TRUE		//infantry death anim
@@ -2244,7 +2257,7 @@ ExplosionType = InkVineFlame_B	// Bullet used for flame effect
 Damage = 5		// How much quicker does a flaming splat die?
 
 [DeathHandSplat]
-Size = 10					// Size (in tiles) of splat
+Size = 10 //was 10					// Size (in tiles) of splat
 Lifespan = 1000				// Ticks until splat disappears
 HomingDelay = 100				// Length of fade animation
 Resource = DeathHandSplat_B	// Bullet used for poison effect
@@ -3023,16 +3036,16 @@ StormDamage=5 //only damages is never picked up
 Group = SmWindtrap	
 PrimaryBuilding = ATConYard, ORConYard, HKConYard
 Terrain = Rock
-Cost = 225  //was 200
+Cost = 315   //was 225  //was 200
 ViewRange = 10
-BuildTime = 240
-PowerGenerated = 100		
+BuildTime = 336   //was 240
+PowerGenerated = 140   //was 100
 Debris = DebrisSmall
 Occupy = bb
 Occupy = bb
 AiCritical = true
 Armour = Building
-Health = 1500
+Health = 2100   //was 1500
 TechLevel = 1
 CanBeEngineered = TRUE
 ExplosionType = Explosion
@@ -3462,10 +3475,10 @@ StormDamage=5 //only damages is never picked up
 PrimaryBuilding = HKConYard
 SecondaryBuilding = ATStarport, ORStarport, HKStarport
 Terrain = Rock
-Cost = 1600
+Cost = 2000   //was 1600
 ViewRange = 10
-PowerUsed = 150
-BuildTime = 1080
+PowerUsed = 225   //was 150
+BuildTime = 1350   //was 1080
 Occupy = nnbbnnnnn
 Occupy = nbbbbnnnn
 Occupy = bbbbbbbbb
@@ -3477,7 +3490,7 @@ Occupy = nbbbbnnnn
 DeployTile = 7,3
 AiCore = true
 Armour = CY
-Health = 3000
+Health = 3750   //was 3000
 Debris = DebrisLarge
 TechLevel = 8
 CanBeEngineered = TRUE
@@ -3557,15 +3570,15 @@ StormDamage=5 //only damages is never picked up
 Group = SmWindtrap	
 PrimaryBuilding = ATConYard, ORConYard, HKConYard
 Terrain = Rock
-Cost = 225
+Cost = 315   //was 225
 ViewRange = 10
-PowerGenerated = 100
-BuildTime = 240
+PowerGenerated = 140   //was 100
+BuildTime = 336   //was 240
 Occupy = bb
 Occupy = bb
 AiCritical = true
 Armour = Building
-Health = 1500
+Health = 2100   //was 1500
 Debris = DebrisSmall
 TechLevel = 1
 CanBeEngineered = TRUE
@@ -3982,10 +3995,10 @@ StormDamage=5 //only damages is never picked up
 PrimaryBuilding = ATConYard
 SecondaryBuilding = ATStarport, ORStarport, HKStarport
 Terrain = Rock
-Cost = 1600
+Cost = 2000   //was 1600
 ViewRange = 10
-PowerUsed = 150
-BuildTime = 1080
+PowerUsed = 225   //was 150
+BuildTime = 1350   //was 1080
 Occupy = sssssss
 Occupy = sssssss
 Occupy = sssssss
@@ -3998,7 +4011,7 @@ Occupy = bbbbbbb
 Occupy = bbbbbbb
 AiCore = true
 Armour = CY
-Health = 3000
+Health = 3750   //was 3000
 Debris = DebrisMedium
 TechLevel = 8
 CanBeEngineered = TRUE
@@ -4077,15 +4090,15 @@ StormDamage=5//only damages is never picked up
 Group = SmWindtrap	
 PrimaryBuilding = ATConYard, ORConYard, HKConYard
 Terrain = Rock
-Cost = 225
+Cost = 315   //was 225
 ViewRange = 10
-PowerGenerated = 100
-BuildTime = 240	
+PowerGenerated = 140   //was 100
+BuildTime = 336   //was 240
 Occupy = bb
 Occupy = bb
 AiCritical = true
 Armour = Building
-Health = 1500
+Health = 2100   //was 1500
 Debris = DebrisSmall
 TechLevel = 1
 CanBeEngineered = TRUE
@@ -4369,10 +4382,10 @@ StormDamage=5 //only damages is never picked up
 PrimaryBuilding = ORConYard
 SecondaryBuilding = ATStarport, ORStarport, HKStarport
 Terrain = Rock
-Cost = 1600
+Cost = 2000   //was 1600
 ViewRange = 10
-PowerUsed = 150
-BuildTime = 1080
+PowerUsed = 225   //was 150 
+BuildTime = 1350   //was 1080
 Occupy = sssssssss
 Occupy = sssssssss
 Occupy = sssssssss
@@ -4388,7 +4401,7 @@ DeployTile = 4,6
 //AnimationTie = ORPalaceTie
 AiCore = true
 Armour = CY
-Health = 3000
+Health = 3750   //was 3000
 Debris = DebrisMedium
 TechLevel = 8
 CanBeEngineered = TRUE
@@ -5870,15 +5883,15 @@ Group = SmWindtrap
 PrimaryBuilding = ATConYard, ORConYard, HKConYard
 Health = 100
 Terrain = Rock
-Cost = 225
+Cost = 315   //was 225
 ViewRange = 10
-PowerGenerated = 100
-BuildTime = 240
+PowerGenerated = 140   //was 100
+BuildTime = 336   //was 240
 Occupy = bb
 Occupy = bb
 //AiCritical = true
 Armour = Building
-Health = 3000
+Health = 4200   //was 3000
 Debris = DebrisSmall
 TechLevel = 1
 CanBeEngineered = TRUE
@@ -6670,15 +6683,15 @@ House = Incidental
 StormDamage=10 //only damages is never picked up	
 Group = SmWindtrap	
 Terrain = Rock
-Cost = 200
+Cost = 315   //was 200
 ViewRange = 10
-BuildTime = 240
-PowerGenerated = 100		
+BuildTime = 336   //was 240
+PowerGenerated = 140   //was 100
 Debris = DebrisSmall
 Occupy = bb
 Occupy = bb
 Armour = Building
-Health = 1500
+Health = 2100   //was 1500
 TechLevel = 1
 CanBeEngineered = TRUE
 ExplosionType = Explosion
@@ -8095,7 +8108,7 @@ ChaosEffect = LargeChaosFX
 HawkEffect = SmallHawkFX
 TastyToWorms = True
 WormAttraction = 8
-Resource = DeathHandBomb	//bomb when to deploy it
+Resource = DevastatorBomb	//bomb when to deploy it
 CrateGift = TRUE
 //CanBeRepaired = FALSE
 Roofheight = 77
